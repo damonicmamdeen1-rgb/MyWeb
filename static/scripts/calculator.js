@@ -162,8 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
     error: false
   },
   {
-    name: "Build Now",
-    link: "https://www.crazygames.com/game/buildnow-gg",
+    name: "BUGGED",
+    link: "about:blank",
     image: "/images/icons/1v1-lol.webp",
     categories: ['all,', '2P'],
     error: false

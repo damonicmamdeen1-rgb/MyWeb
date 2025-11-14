@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     name: "Ace Attorney",
-    link: "https://aceattorneyonline.com/",
+    link: "http://web.aceattorneyonline.com/",
     image: "/images/icons/aa.webp",
     categories: ['all'],
     error: false

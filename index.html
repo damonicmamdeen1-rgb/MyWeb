@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interstellar</title>
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/css/interstellar-glass.css">
+  <script src="static/js/particles.min.js"></script>
+</head>
+<body class="liquid-glass">
+  <div id="particles-js"></div>  <!-- Particle BG -->
+  <nav class="fixed-nav-bar liquid-glass">
+    <div class="logo interstellar-title">Interstellar</div>
+    <div class="fixed-nav-bar-right liquid-glass">
+      <a class="navbar-link liquid-glass" href="#">Home</a>
+      <a class="navbar-link liquid-glass" href="#">About</a>
+      <a class="navbar-link liquid-glass" href="#">Settings</a>
+    </div>
+  </nav>
+  <main class="main liquid-glass">
+    <h1 class="interstellar-title">Welcome to Interstellar</h1>
+    <section class="settings-card liquid-glass">
+      <h3>Background Image</h3>
+      <input id="bgImgInput" class="key-form liquid-glass" type="text" placeholder="Paste image URL..."/>
+      <button id="bgImgBtn" class="key-button liquid-glass">Set Background</button>
+      <h3>Particle Style</h3>
+      <select id="particleType" class="liquid-glass">
+        <option value="circle">Circle</option>
+        <option value="star">Star</option>
+        <option value="polygon">Polygon</option>
+      </select>
+      <input id="particleColor" type="color" value="#ffffff" class="key-form liquid-glass"/>
+      <button id="updateParticles" class="key-button liquid-glass">Update Particles</button>
+    </section>
+    <div class="search-container liquid-glass">
+      <input class="searchbar liquid-glass" type="search" placeholder="Search...">
+    </div>
+  </main>
+  <script>
+    // Custom background support
+    document.getElementById('bgImgBtn').onclick = function() {
+      const imgURL = document.getElementById('bgImgInput').value;
+      if(imgURL && imgURL.startsWith('http')) {
+        document.body.style.background = `url('${imgURL}') center center/cover no-repeat, rgba(24, 26, 32, 0.88)`;
+        document.body.style.backgroundBlendMode = 'overlay';
+      }
+    };
+    // Particle JS integration
+    function loadParticles(type, color) {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 60 },
+          color: { value: color },
+          shape: { type: type },
+          opacity: { value: 0.6 },
+          size: { value: 7 },
+        }
+      });
+    }
+    // Initial/default
+    loadParticles('circle', '#ffffff');
+    // On user edit
+    document.getElementById('updateParticles').onclick = function() {
+      const type = document.getElementById('particleType').value;
+      const color = document.getElementById('particleColor').value;
+      loadParticles(type, color);
+    };
+  </script>
+</body>
+</html>

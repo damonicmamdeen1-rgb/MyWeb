@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600682375918718"
@@ -57,7 +58,7 @@
     <iframe src="" id="iframeId" style="bottom: 0" style="border: 0px #ffffff none" name="Iframe" scrolling="yes" frameborder="0" marginheight="0px" marginwidth="0px" height="100%" width="100%" allowfullscreen></iframe>
 
     <button onclick="reload()" class="navbtn"> <i class="fa-solid fa-rotate-right"></i> </button>
-    <button id="home-page" class="navbtn1" onclick="reload()"> <i class="fa-solid fa-house"></i> </button>
+    <button id="home-page" class="navbtn1"> <i class="fa-solid fa-house"></i> </button>
     <button id="fullscreen-button" class="navbtn2"><i class="fa-solid fa-expand"></i></button>
 
     <script>
@@ -80,9 +81,10 @@
         let encodedUrl = sessionStorage.getItem("encodedUrl");
         encodedUrl = "/astronomy/" + encodedUrl;
         console.log(encodedUrl);
-        document.querySelector("#iframeid").src = encodedUrl;
+        document.querySelector("#iframeId").src = encodedUrl;
       };
     </script>
     <script src="/scripts/main.js"></script>
     <script src="/scripts/customIcon.js"></script>
   </body>
+</html>

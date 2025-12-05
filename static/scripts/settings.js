@@ -122,16 +122,21 @@ if (switches) {
 var themeId = localStorage.getItem("theme");
 if(themeId=="") {themeId="d"}
 
-document.getElementsByClassName("td")[0].value = themeId;
+const themeDropdownElements = document.getElementsByClassName("td");
+if (themeDropdownElements.length > 0) {
+    themeDropdownElements[0].value = themeId;
+}
 
-const themeDropdown = document.getElementsByClassName('td');
-dropdown.addEventListener('change', function() {
-    const selectedValue = dropdown.value;
+const themeDropdown = document.getElementById('theme-dropdown');
+if (themeDropdown) {
+    themeDropdown.addEventListener('change', function() {
+        const selectedValue = themeDropdown.value;
 
-    localStorage.setItem('theme', selectedValue);
+        localStorage.setItem('theme', selectedValue);
 
-    window.location=window.location;
-});
+        window.location=window.location;
+    });
+}
 
 function themeChange(ele) {
   const selTheme = ele.value;

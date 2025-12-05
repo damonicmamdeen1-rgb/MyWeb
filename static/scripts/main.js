@@ -12,35 +12,47 @@ document.addEventListener("keydown", function(event) {
 });
 
 var eventKeyInput = document.getElementById("eventKeyInput");
-eventKeyInput.addEventListener("input", function() {
-  eventKey = eventKeyInput.value;
-});
+if (eventKeyInput) {
+  eventKeyInput.addEventListener("input", function() {
+    eventKey = eventKeyInput.value;
+  });
+}
 
 var linkInput = document.getElementById("linkInput");
-linkInput.addEventListener("input", function() {
-  panicLink = linkInput.value;
-});
+if (linkInput) {
+  linkInput.addEventListener("input", function() {
+    panicLink = linkInput.value;
+  });
+}
 
 function saveEventKey() {
-  eventKey = eventKeyInput.value;
-  localStorage.setItem("eventKey", eventKey);
-  localStorage.setItem("panicLink", panicLink);
+  var eventKeyInput = document.getElementById("eventKeyInput");
+  if (eventKeyInput) {
+    eventKey = eventKeyInput.value;
+    localStorage.setItem("eventKey", eventKey);
+    localStorage.setItem("panicLink", panicLink);
+  }
 }
 
 // Retrieve selected option from localStorage and update the head section
-const selectedOption = localStorage.getItem('selectedOption');
-if (selectedOption) {
-    updateHeadSection(selectedOption);
-}
+// Only run if updateHeadSection is defined (from settings.js)
+(function() {
+  var storedOption = localStorage.getItem('selectedOption');
+  if (storedOption && typeof updateHeadSection === 'function') {
+    updateHeadSection(storedOption);
+  }
+})();
 
 // Dropdown event listener
-const dropdown = document.getElementById('dropdown');
-if (dropdown) {
-    dropdown.addEventListener('change', function() {
-        const selectedValue = dropdown.value;
-        updateHeadSection(selectedValue);
-        
-        // Save selected option to localStorage
-        localStorage.setItem('selectedOption', selectedValue);
+(function() {
+  var dropdownElement = document.getElementById('dropdown');
+  if (dropdownElement && typeof updateHeadSection === 'function') {
+    dropdownElement.addEventListener('change', function() {
+      var selectedValue = dropdownElement.value;
+      updateHeadSection(selectedValue);
+      
+      // Save selected option to localStorage
+      localStorage.setItem('selectedOption', selectedValue);
     });
-}
+  }
+})();

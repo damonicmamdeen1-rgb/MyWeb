@@ -13,19 +13,26 @@ document.addEventListener("keydown", function(event) {
 });
 
 var eventKeyInput = document.getElementById("eventKeyInput");
-eventKeyInput.addEventListener("input", function() {
-  eventKey = eventKeyInput.value;
-});
+if (eventKeyInput) {
+  eventKeyInput.addEventListener("input", function() {
+    eventKey = eventKeyInput.value;
+  });
+}
 
 var linkInput = document.getElementById("linkInput");
-linkInput.addEventListener("input", function() {
-  panicLink = linkInput.value;
-});
+if (linkInput) {
+  linkInput.addEventListener("input", function() {
+    panicLink = linkInput.value;
+  });
+}
 
 function saveEventKey() {
-  eventKey = eventKeyInput.value;
-  localStorage.setItem("eventKey", eventKey);
-  localStorage.setItem("panicLink", panicLink);
+  var eventKeyInput = document.getElementById("eventKeyInput");
+  if (eventKeyInput) {
+    eventKey = eventKeyInput.value;
+    localStorage.setItem("eventKey", eventKey);
+    localStorage.setItem("panicLink", panicLink);
+  }
 }
 
 // Tab Cloaker

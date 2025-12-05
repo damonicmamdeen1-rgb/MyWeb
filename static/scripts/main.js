@@ -35,10 +35,12 @@ if (selectedOption) {
 
 // Dropdown event listener
 const dropdown = document.getElementById('dropdown');
-dropdown.addEventListener('change', function() {
-    const selectedValue = dropdown.value;
-    updateHeadSection(selectedValue);
-    
-    // Save selected option to localStorage
-    localStorage.setItem('selectedOption', selectedValue);
-});
+if (dropdown) {
+    dropdown.addEventListener('change', function() {
+        const selectedValue = dropdown.value;
+        updateHeadSection(selectedValue);
+        
+        // Save selected option to localStorage
+        localStorage.setItem('selectedOption', selectedValue);
+    });
+}

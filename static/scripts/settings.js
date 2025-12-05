@@ -88,32 +88,36 @@ function redirectToMainDomain(selectedValue) {
 
 // Dropdown event listener
 const dropdown = document.getElementById('dropdown');
-dropdown.addEventListener('change', function() {
-    const selectedValue = dropdown.value;
-    updateHeadSection(selectedValue);
-    
-    // Save selected option to localStorage
-    localStorage.setItem('selectedOption', selectedValue);
-});
-
-const switches = document.getElementById('2');
-
-if(window.localStorage.getItem('v4Particles') != "") {
-  if(window.localStorage.getItem('v4Particles') == "true") {
-    switches.checked = true;
-  }
-  else {
-    switches.checked = false;
-  }
+if (dropdown) {
+    dropdown.addEventListener('change', function() {
+        const selectedValue = dropdown.value;
+        updateHeadSection(selectedValue);
+        
+        // Save selected option to localStorage
+        localStorage.setItem('selectedOption', selectedValue);
+    });
 }
 
-switches.addEventListener('change', (event) => {
-  if (event.currentTarget.checked) {
-    window.localStorage.setItem('v4Particles', 'true');
-  } else {
-    window.localStorage.setItem('v4Particles', 'false');
-  }
-});
+const switches = document.getElementById('particles-toggle');
+
+if (switches) {
+    if(window.localStorage.getItem('v4Particles') != "") {
+      if(window.localStorage.getItem('v4Particles') == "true") {
+        switches.checked = true;
+      }
+      else {
+        switches.checked = false;
+      }
+    }
+
+    switches.addEventListener('change', (event) => {
+      if (event.currentTarget.checked) {
+        window.localStorage.setItem('v4Particles', 'true');
+      } else {
+        window.localStorage.setItem('v4Particles', 'false');
+      }
+    });
+}
 
 var themeId = localStorage.getItem("theme");
 if(themeId=="") {themeId="d"}

@@ -1148,8 +1148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     appInd++;
   });
-  appsContainer.appendChild(pinnedApps);
-  appsContainer.appendChild(nonPinnedApps);
 });
 function setPin(index) {
   pins = localStorage.getItem("pinnedGames");

@@ -55,11 +55,11 @@
     </style>
   </head>
   <body>
-    <iframe src="" id="iframeId" style="bottom: 0" style="border: 0px #ffffff none" name="Iframe" scrolling="yes" frameborder="0" marginheight="0px" marginwidth="0px" height="100%" width="100%" allowfullscreen></iframe>
+    <iframe id="iframeId" name="Iframe" title="Content Frame" allowfullscreen></iframe>
 
-    <button onclick="reload()" class="navbtn"> <i class="fa-solid fa-rotate-right"></i> </button>
-    <button id="home-page" class="navbtn1"> <i class="fa-solid fa-house"></i> </button>
-    <button id="fullscreen-button" class="navbtn2"><i class="fa-solid fa-expand"></i></button>
+    <button type="button" onclick="reload()" class="navbtn" aria-label="Reload"> <i class="fa-solid fa-rotate-right"></i> </button>
+    <button type="button" id="home-page" class="navbtn1" aria-label="Home"> <i class="fa-solid fa-house"></i> </button>
+    <button type="button" id="fullscreen-button" class="navbtn2" aria-label="Fullscreen"><i class="fa-solid fa-expand"></i></button>
 
     <script>
       function reload() {

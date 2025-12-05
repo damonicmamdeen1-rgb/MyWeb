@@ -88,46 +88,55 @@ function redirectToMainDomain(selectedValue) {
 
 // Dropdown event listener
 const dropdown = document.getElementById('dropdown');
-dropdown.addEventListener('change', function() {
-    const selectedValue = dropdown.value;
-    updateHeadSection(selectedValue);
-    
-    // Save selected option to localStorage
-    localStorage.setItem('selectedOption', selectedValue);
-});
-
-const switches = document.getElementById('2');
-
-if(window.localStorage.getItem('v4Particles') != "") {
-  if(window.localStorage.getItem('v4Particles') == "true") {
-    switches.checked = true;
-  }
-  else {
-    switches.checked = false;
-  }
+if (dropdown) {
+    dropdown.addEventListener('change', function() {
+        const selectedValue = dropdown.value;
+        updateHeadSection(selectedValue);
+        
+        // Save selected option to localStorage
+        localStorage.setItem('selectedOption', selectedValue);
+    });
 }
 
-switches.addEventListener('change', (event) => {
-  if (event.currentTarget.checked) {
-    window.localStorage.setItem('v4Particles', 'true');
-  } else {
-    window.localStorage.setItem('v4Particles', 'false');
-  }
-});
+const switches = document.getElementById('particles-toggle');
+
+if (switches) {
+    if(window.localStorage.getItem('v4Particles') != "") {
+      if(window.localStorage.getItem('v4Particles') == "true") {
+        switches.checked = true;
+      }
+      else {
+        switches.checked = false;
+      }
+    }
+
+    switches.addEventListener('change', (event) => {
+      if (event.currentTarget.checked) {
+        window.localStorage.setItem('v4Particles', 'true');
+      } else {
+        window.localStorage.setItem('v4Particles', 'false');
+      }
+    });
+}
 
 var themeId = localStorage.getItem("theme");
 if(themeId=="") {themeId="d"}
 
-document.getElementsByClassName("td")[0].value = themeId;
+const themeDropdownElements = document.getElementsByClassName("td");
+if (themeDropdownElements.length > 0) {
+    themeDropdownElements[0].value = themeId;
+}
 
-const themeDropdown = document.getElementsByClassName('td');
-dropdown.addEventListener('change', function() {
-    const selectedValue = dropdown.value;
+const themeDropdown = document.getElementById('theme-dropdown');
+if (themeDropdown) {
+    themeDropdown.addEventListener('change', function() {
+        const selectedValue = themeDropdown.value;
 
-    localStorage.setItem('theme', selectedValue);
+        localStorage.setItem('theme', selectedValue);
 
-    window.location=window.location;
-});
+        window.location=window.location;
+    });
+}
 
 function themeChange(ele) {
   const selTheme = ele.value;

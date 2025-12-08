@@ -52,6 +52,15 @@ body {
   transform: translateX(-50%) scale(1.3);
 }
 
+.column button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.column:hover button {
+  opacity: 1;
+}
+
 .input-container {
 	position: relative;
 	margin-top: 150px;

@@ -11,28 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Bullet Force Multiplayer",
       link: "https://www.crazygames.com/game/bullet-force-multiplayer",
       image: "/images/icons/BFM.png",
-      categories: ['all,', '2P'],
+      categories: ['all', '2P'],
       error: false
     },
     {
       name: "Crazy Games",
       link: "https://www.crazygames.com/",
       image: "/images/icons/crazy.png",
-      categories: ['all,', 'emu,', '2P,', 'sports,', 'flash' ],
+      categories: ['all', 'emu', '2P', 'sports', 'flash'],
       error: false
     },
     {
       name: "Cubes 2048",
       link: "https://www.crazygames.com/game/cubes-2048-io",
       image: "/images/icons/C2048.jpg",
-      categories: ['all,', '2P'],
+      categories: ['all', '2P'],
       error: false
     },
               {
       name: "DOOM",
       link: "https://archive.org/details/doom-play",
       image: "/images/icons/DOOM.jpg",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
     {
@@ -60,14 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "GBA Emulator",
       link: "https://ds.44670.org/gba/",
       image: "/images/icons/gba.jpg",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
     {
       name: "Smash Karts",
       link: "https://smashkarts.io/",
       image: "/images/icons/itch.png",
-      categories: ['all,', 'emu,', '2P'],
+      categories: ['all', 'emu', '2P'],
       error: false
     },
             {
@@ -81,56 +81,56 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Nintendo DS Emulator",
       link: "https://ds.44670.org/",
       image: "/images/icons/ds.png",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
         {
       name: "Nintendo 64 Emulator",
       link: "https://www.neilb.net/n64wasm/",
       image: "/images/icons/N64.png",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
         {
       name: "Playstation 2 Emulator",
       link: "https://ds.44670.org/",
       image: "/images/icons/PS2.webp",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
     {
       name: "Run 3",
       link: "https://www.coolmathgames.com/0-run-3/play",
       image: "/images/icons/run3.png",
-      categories: ['all,', 'flash'],
+      categories: ['all', 'flash'],
       error: false
     },
     {
-      name: "Subway Surfers: San Francisco ",
+      name: "Subway Surfers: San Francisco",
       link: "https://raw.githack.com/3kh0/3kh0-assets/main/subway-surfers/index.html",
       image: "/images/icons/SF.webp",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
                   {
       name: "Super Mario Bros",
       link: "http://topoi.pooq.com/hendrik/notmine/FullScreenMario/mario.html",
       image: "/images/icons/SMB.jpg",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
     {
       name: "Survivor.io",
       link: "https://html5.gamedistribution.com/rvvASMiM/f1c451e586c04b4c8cba01b0c50d9090/index.html",
       image: "/images/icons/SVI.png",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
           {
       name: "Web Retro",
       link: "https://binbashbanana.github.io/webretro/",
       image: "/images/icons/webretro.png",
-      categories: ['all,', 'emu'],
+      categories: ['all', 'emu'],
       error: false
     },
     {
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Bomb Party",
       link: "https://jklm.fun",
       image: "/images/icons/BP.png",
-      categories: ['all,', '2P'],
+      categories: ['all', '2P'],
       error: false
     },
   {
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     name: "Edpuzzle Hack",
     link: "https://edpuzzle.hs.vc/",
     image: "data:image/png;base64,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",
-    categories: ['all,', '2P'],
+    categories: ['all', '2P'],
     error: false
   },
   {
@@ -763,13 +763,6 @@ document.addEventListener('DOMContentLoaded', () => {
         categories: ['all'],
         error: false
       },    
-      {
-    name: "Paper Mario 64",
-    link: "https://f.kbhgames.com/r/n64/game.php?file=Paper%20Mario%20(USA).zip",
-    image: "/images/icons/paper-mario-64.webp",
-    categories: ['all'],
-    error: false
-  },
   {
     name: "Paper.io",
     link: "https://paper-io.com/",
@@ -928,13 +921,6 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Smash Bros 64",
       link: "https://emulatorgames.online/games/n64/super-smash-bros",
       image: "/images/icons/super-smash-bros-64.webp",
-      categories: ['all'],
-      error: false
-    },
-    {
-      name: "Smash Karts",
-      link: "https://smashkarts.io/",
-      image: "/images/icons/smashkarts.webp",
       categories: ['all'],
       error: false
     },

@@ -122,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       name: "Instagram",
-      link: "instagram.com",
-      image: "https://freeimage.host/i/fJlfvEb",
+      link: "https://instagram.com",
+      image: "/images/icons/apps/instagram.png",
       categories: ["all", "soc"]
     },
     {

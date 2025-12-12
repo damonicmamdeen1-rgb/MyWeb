@@ -1088,13 +1088,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btn = document.createElement('button');
     btn.appendChild(pinIcon);
-    btn.style.float = "right";
     btn.style.backgroundColor="rgb(45,45,45)";
     btn.style.borderRadius="50%";
     btn.style.borderColor="transparent";
     btn.style.color="white";
-    btn.style.top="-200px";
-    btn.style.position="relative";
     btn.onclick = function () {
       setPin(pinNum);
     };
@@ -1117,11 +1114,9 @@ document.addEventListener('DOMContentLoaded', () => {
     link.appendChild(image);
     link.appendChild(paragraph);
     columnDiv.appendChild(link);
-    if(appInd != 0) {
-      columnDiv.appendChild(btn);
-    }
+    columnDiv.appendChild(btn);
 
-    if(pinList!=null && appInd != 0) {
+    if(pinList!=null) {
       if(pinContains(appInd,pinList)) {
         pinnedApps.appendChild(columnDiv);
       }

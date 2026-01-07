@@ -142,14 +142,14 @@ class AIChatbot {
     if (lowerMessage.includes('background') || lowerMessage.includes('wallpaper')) {
       if (lowerMessage.includes('change') || lowerMessage.includes('set')) {
         // Extract URL if provided
-        const urlMatch = message.match(/https?:\/\/[^\s]+/);
+        const urlMatch = message.match(/https?:\/\/[^\s]+\.(jpg|jpeg|png|gif|webp|bmp|svg)/i);
         if (urlMatch) {
           const imageUrl = urlMatch[0];
           this.setBackground(imageUrl);
           response = `I've changed your background to the image you provided! The background will be saved for your next visit.`;
           actionTaken = true;
         } else {
-          response = `To change the background, please provide an image URL. For example: "Change background to https://example.com/image.jpg"`;
+          response = `To change the background, please provide a valid image URL (jpg, png, gif, webp). For example: "Change background to https://example.com/image.jpg"`;
         }
       } else if (lowerMessage.includes('remove') || lowerMessage.includes('reset') || lowerMessage.includes('default')) {
         this.resetBackground();
@@ -162,18 +162,23 @@ class AIChatbot {
     // Theme change commands
     else if (lowerMessage.includes('theme') || lowerMessage.includes('color scheme')) {
       const themes = {
-        'dark': 'd',
-        'light': 'l',
-        'blue': 'nb',
-        'green': 'fg',
-        'red': 'cr',
-        'purple': 's',
         'milkshake': 'm',
+        'dark blue': 'nb',
+        'forest green': 'fg',
+        'dark red': 'cr',
+        'red black': 'rb',
+        'blue green': 'bg',
+        'purple': 's',
+        'light': 'l',
+        'dark': 'd',
         'default': 'd'
       };
 
       let themeSet = false;
-      for (const [name, code] of Object.entries(themes)) {
+      // Sort by length descending to match longer phrases first
+      const sortedThemes = Object.entries(themes).sort((a, b) => b[0].length - a[0].length);
+      
+      for (const [name, code] of sortedThemes) {
         if (lowerMessage.includes(name)) {
           this.setTheme(code);
           response = `I've changed your theme to ${name}! The page will reload to apply the theme.`;
@@ -184,7 +189,7 @@ class AIChatbot {
       }
 
       if (!themeSet) {
-        response = `I can change your theme! Available themes: dark, light, blue, green, red, purple, or milkshake. Try: "Change theme to dark"`;
+        response = `I can change your theme! Available themes: dark, light, dark blue, forest green, dark red, purple, milkshake, or blue green. Try: "Change theme to dark"`;
       }
     }
     // Particles commands
@@ -227,10 +232,10 @@ class AIChatbot {
     else if (lowerMessage.includes('help') || lowerMessage.includes('what can you do') || lowerMessage.includes('commands')) {
       response = `I'm your AI assistant! I can help you customize your site. Here's what I can do:
 
-🎨 Background: "Change background to [URL]" or "Reset background"
-🌈 Themes: "Change theme to dark/light/blue/green/red/purple/milkshake"
+🎨 Background: "Change background to [image URL]" or "Reset background"
+🌈 Themes: "Change theme to dark/light/dark blue/forest green/dark red/purple/milkshake"
 ✨ Particles: "Enable particles" or "Disable particles"
-🔒 Tab Cloaking: "Disguise tab as Google Classroom/Gmail/Drive"
+🔒 Tab Cloaking: "Disguise tab as Google Classroom/Gmail/Drive/Khan Academy"
 
 Just ask me naturally and I'll help you personalize your experience!`;
     }
@@ -260,17 +265,13 @@ Just ask me naturally and I'll help you personalize your experience!`;
 
   // Customization methods
   setBackground(imageUrl) {
-    localStorage.setItem('background', imageUrl);
-    if (typeof setBackground === 'function') {
-      setBackground(imageUrl);
-    }
+    localStorage.setItem('backgroundImage', imageUrl);
+    document.body.style.backgroundImage = "url('" + imageUrl + "')";
   }
 
   resetBackground() {
-    localStorage.removeItem('background');
-    if (typeof resetBackground === 'function') {
-      resetBackground();
-    }
+    localStorage.removeItem('backgroundImage');
+    document.body.style.backgroundImage = "url('default-background.jpg')";
   }
 
   setTheme(themeCode) {
@@ -299,7 +300,7 @@ Just ask me naturally and I'll help you personalize your experience!`;
         icon: 'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico'
       },
       'Khan': {
-        title: 'Khan Academy',
+        title: 'Dashboard | Khan Academy',
         icon: 'https://cdn.kastatic.org/images/favicon.ico'
       }
     };
@@ -329,17 +330,27 @@ Just ask me naturally and I'll help you personalize your experience!`;
     const saved = localStorage.getItem('chatbot-history');
     if (saved) {
       try {
-        this.conversationHistory = JSON.parse(saved);
-        // Restore messages (last 10)
-        const recentMessages = this.conversationHistory.slice(-10);
-        recentMessages.forEach(msg => {
-          const messageDiv = document.createElement('div');
-          messageDiv.className = `message ${msg.type}`;
-          messageDiv.textContent = msg.text;
-          this.messagesContainer.appendChild(messageDiv);
-        });
+        const parsed = JSON.parse(saved);
+        // Validate parsed data structure
+        if (Array.isArray(parsed) && parsed.every(msg => 
+          msg && typeof msg === 'object' && 
+          typeof msg.text === 'string' && 
+          typeof msg.type === 'string' &&
+          typeof msg.timestamp === 'number'
+        )) {
+          this.conversationHistory = parsed;
+          // Restore messages (last 10)
+          const recentMessages = this.conversationHistory.slice(-10);
+          recentMessages.forEach(msg => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${msg.type}`;
+            messageDiv.textContent = msg.text;
+            this.messagesContainer.appendChild(messageDiv);
+          });
+        }
       } catch (e) {
         console.error('Failed to load chat history:', e);
+        localStorage.removeItem('chatbot-history');
       }
     }
   }

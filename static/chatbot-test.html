@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot Test</title>
-  <link rel="stylesheet" href="/css/chatbot.css">
+  <title>Chat Test</title>
+  <link rel="stylesheet" href="/css/chat.css">
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
   <script src="https://kit.fontawesome.com/1237c86ba0.js" crossorigin="anonymous"></script>
   <style>
     body {
       margin: 0;
       padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
       min-height: 100vh;
       font-family: Arial, sans-serif;
       color: white;
@@ -23,12 +24,14 @@
     h1 {
       text-align: center;
       margin-bottom: 20px;
+      color: #ff9999;
     }
     .info {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 15px;
       margin-bottom: 20px;
+      border: 2px solid rgba(255, 107, 107, 0.3);
     }
     .features {
       list-style: none;
@@ -38,34 +41,36 @@
       padding: 10px;
       margin: 10px 0;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 5px;
+      border-radius: 8px;
+      border-left: 3px solid #ff6b6b;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>AI Chatbot Test Page</h1>
+    <h1>User Chat Test Page</h1>
     <div class="info">
-      <h2>Welcome to the AI Assistant!</h2>
-      <p>Click the chatbot button in the bottom-right corner to interact with the AI assistant.</p>
+      <h2>Welcome to the Chat!</h2>
+      <p>Click the chat button in the bottom-right corner to start chatting with other users.</p>
       <h3>Features:</h3>
       <ul class="features">
-        <li>🎨 Change background images</li>
-        <li>🌈 Switch between different themes</li>
-        <li>✨ Enable/disable particles</li>
-        <li>🔒 Disguise your tab to look like educational sites</li>
-        <li>💬 Natural language processing for easy customization</li>
+        <li>💬 Real-time chat with other users</li>
+        <li>👤 Set your username</li>
+        <li>🔴 See when other users are online</li>
+        <li>✍️ Typing indicators</li>
+        <li>🎨 Modern design without liquid glass effects</li>
+        <li>🌈 New color scheme (red/purple instead of green/blue)</li>
       </ul>
-      <p><strong>Try saying:</strong></p>
+      <p><strong>Try it out:</strong></p>
       <ul class="features">
-        <li>"Help" - See all available commands</li>
-        <li>"Change theme to dark" - Switch to dark theme</li>
-        <li>"Enable particles" - Add particle effects</li>
-        <li>"Disguise tab as Google Classroom" - Cloak the tab</li>
+        <li>Click the chat button to open</li>
+        <li>Enter your username when prompted</li>
+        <li>Start chatting with other users on the website</li>
+        <li>Open multiple tabs to simulate multiple users</li>
       </ul>
     </div>
   </div>
   
-  <script src="/scripts/chatbot.js"></script>
+  <script src="/scripts/chat.js"></script>
 </body>
 </html>

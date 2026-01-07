@@ -3,8 +3,8 @@
 body {
   text-decoration: none;
   font-family: "Inter";
-  background: #1E1E1E;
-
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
 }
 
 
@@ -12,13 +12,14 @@ body {
   width: 145px;
   transition: all 0.2s ease;
   cursor: pointer;
-  background: #4545459e;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
   padding: 10px;
   margin: 0;
   position: relative;
   display: flex;
   flex-direction: column;
+  border: 2px solid rgba(255, 107, 107, 0.2);
 }
 
 .column img {
@@ -47,6 +48,8 @@ body {
 
 .column:hover {
   transform: scale(1.2);
+  border-color: #ff6b6b;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
 }
 
 .column:hover .label {
@@ -89,25 +92,37 @@ body {
 	input {
 	  padding: 20px;
 	  width: 550px;
-	  border-radius: 5px;
-	  background: #353535;
+	  border-radius: 10px;
+	  background: rgba(255, 255, 255, 0.1);
 	  text-align: center;
 	  font-size: 24px;
-	  border: none;
+	  border: 2px solid rgba(255, 107, 107, 0.3);
 	  outline: none;
 	  color: white;
+	  transition: all 0.3s;
+	}
+	
+	input:focus {
+	  background: rgba(255, 255, 255, 0.15);
+	  border-color: #ff6b6b;
 	}
 
 	select {
 		padding: 20px;
-		border-radius: 5px;
-		background: #353535;
+		border-radius: 10px;
+		background: rgba(255, 255, 255, 0.1);
 		color: white;
 		font-size: 20px;
-		border: 0px;
+		border: 2px solid rgba(255, 107, 107, 0.3);
 		outline: none;
-    cursor: pointer;
+	    cursor: pointer;
+	    transition: all 0.3s;
 	  }
+	  
+	select:focus {
+	  background: rgba(255, 255, 255, 0.15);
+	  border-color: #ff6b6b;
+	}
 .container-apps {
   margin-top: 20px;
   display: flex;

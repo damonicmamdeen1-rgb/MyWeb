@@ -2,231 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interstellar</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600682375918718"
-     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="static/css/main.css">
-  <script src="static/js/particles.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyWeb</title>
   <style>
-    nav.fixed-nav-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 20px 40px;
-      background: rgba(26, 26, 46, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid rgba(255, 107, 107, 0.3);
-      z-index: 100;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     
-    .logo {
-      color: white;
-      font-size: 24px;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    
-    .fixed-nav-bar-right {
-      float: right;
-    }
-    
-    .navbar-link {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    
-    .navbar-link:hover {
-      color: #ff6b6b;
-    }
-    
-    .main {
-      padding-top: 100px;
-      text-align: center;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #ffffff;
+      color: #333;
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
-    .interstellar-title {
-      color: white;
+    .container {
+      text-align: center;
+      padding: 40px;
+    }
+    
+    h1 {
       font-size: 3rem;
-      margin-bottom: 40px;
-      text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-    }
-    
-    .settings-card {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      border: 2px solid rgba(255, 107, 107, 0.3);
-      color: white;
-    }
-    
-    .settings-card h3 {
-      color: #ff9999;
       margin-bottom: 20px;
+      color: #000;
     }
     
-    .key-form, select {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 107, 107, 0.3);
-      border-radius: 10px;
-      color: white;
-      outline: none;
-      box-sizing: border-box;
-    }
-    
-    .key-form:focus, select:focus {
-      border-color: #ff6b6b;
-      background: rgba(255, 255, 255, 0.15);
-    }
-    
-    .key-button {
-      padding: 12px 24px;
-      margin: 10px 5px;
-      background: rgba(255, 107, 107, 0.2);
-      border: 2px solid rgba(255, 107, 107, 0.3);
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    
-    .key-button:hover {
-      background: rgba(255, 107, 107, 0.3);
-      border-color: #ff6b6b;
-      transform: translateY(-2px);
-    }
-    
-    .search-container {
-      margin: 40px auto;
-      max-width: 600px;
-    }
-    
-    .searchbar {
-      width: 100%;
-      padding: 15px 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 107, 107, 0.3);
-      border-radius: 15px;
-      color: white;
-      font-size: 18px;
-      outline: none;
-      box-sizing: border-box;
-    }
-    
-    .searchbar:focus {
-      border-color: #ff6b6b;
-      background: rgba(255, 255, 255, 0.15);
-    }
-    
-    option {
-      background: #2d2d3a;
-      color: white;
+    p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 30px;
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
-  <nav class="fixed-nav-bar">
-    <div class="logo">Interstellar</div>
-    <div class="fixed-nav-bar-right">
-      <a class="navbar-link" href="#">Home</a>
-      <a class="navbar-link" href="#">About</a>
-      <a class="navbar-link" href="#">Settings</a>
-    </div>
-  </nav>
-  <main class="main">
-    <h1 class="interstellar-title">Welcome to Interstellar</h1>
-    <section class="settings-card">
-      <h3>Set Background Image</h3>
-      <input id="bgImgInput" class="key-form" type="text" placeholder="Enter image URL..."/>
-      <button id="bgImgSave" class="key-button">Save</button>
-      <button id="bgImgReset" class="key-button">Reset</button>
-      <hr style="margin:32px 0; border: none; border-top: 1px solid rgba(255, 255, 255, 0.2);">
-      <h3>Particles Style</h3>
-      <select id="particleType">
-        <option value="circle">Circle</option>
-        <option value="star">Star</option>
-        <option value="polygon">Polygon</option>
-      </select>
-      <input id="particleColor" type="color" value="#ff6b6b" class="key-form"/>
-      <button id="particleSave" class="key-button">Save</button>
-      <button id="particleReset" class="key-button">Reset</button>
-    </section>
-    <div class="search-container">
-      <input class="searchbar" type="search" placeholder="Search...">
-    </div>
-  </main>
-  <script>
-    // --- Custom Background functionality ---
-    const defaultBackground = "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)";
-    function setBackground(imgURL) {
-      document.body.style.background = imgURL
-        ? `url('${imgURL}') center center/cover no-repeat, ${defaultBackground}`
-        : defaultBackground;
-      document.body.style.backgroundBlendMode = imgURL ? 'overlay' : 'normal';
-    }
-    document.getElementById('bgImgSave').onclick = function() {
-      const imgURL = document.getElementById('bgImgInput').value;
-      localStorage.setItem('interstellarBg', imgURL);
-      setBackground(imgURL);
-    };
-    document.getElementById('bgImgReset').onclick = function() {
-      localStorage.removeItem('interstellarBg');
-      document.getElementById('bgImgInput').value = "";
-      setBackground("");
-    };
-    window.addEventListener('DOMContentLoaded', function() {
-      const savedBg = localStorage.getItem('interstellarBg');
-      if (savedBg) {
-        document.getElementById('bgImgInput').value = savedBg;
-        setBackground(savedBg);
-      }
-
-      // --- Particle functionality ---
-      const defaultParticles = { type: "circle", color: "#ff6b6b" };
-      function loadParticles(type, color) {
-        particlesJS('particles-js', {
-          particles: {
-            number: { value: 60 },
-            color: { value: color },
-            shape: { type: type },
-            opacity: { value: 0.6 },
-            size: { value: 7 },
-          }
-        });
-      }
-      document.getElementById('particleSave').onclick = function() {
-        const type = document.getElementById('particleType').value;
-        const color = document.getElementById('particleColor').value;
-        localStorage.setItem('interstellarParticles', JSON.stringify({ type, color }));
-        loadParticles(type, color);
-      };
-      document.getElementById('particleReset').onclick = function() {
-        document.getElementById('particleType').value = defaultParticles.type;
-        document.getElementById('particleColor').value = defaultParticles.color;
-        localStorage.removeItem('interstellarParticles');
-        loadParticles(defaultParticles.type, defaultParticles.color);
-      };
-      const savedParticles = localStorage.getItem('interstellarParticles');
-      if (savedParticles) {
-        const { type, color } = JSON.parse(savedParticles);
-        document.getElementById('particleType').value = type;
-        document.getElementById('particleColor').value = color;
-        loadParticles(type, color);
-      } else {
-        loadParticles(defaultParticles.type, defaultParticles.color);
-      }
-    });
-  </script>
+  <div class="container">
+    <h1>MyWeb</h1>
+    <p>A fresh start.</p>
+  </div>
 </body>
 </html>
